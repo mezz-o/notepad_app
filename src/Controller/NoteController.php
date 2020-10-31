@@ -62,4 +62,15 @@ class NoteController extends AbstractController
         return $this->render("/note/edit.html.twig", ["form"=>$form->createView()]);
     }
 
+    /**
+     * @Route("/delete/{id<[0-9]+>}", name="app_note_delete", methods="DELETE|GET")
+     */
+    public function delete(Note $note, EntityManagerInterface $em): Response
+    {
+        $em->remove($note);
+        $em->flush();
+
+        return $this->redirectToRoute("app_home");
+    }
+
 }

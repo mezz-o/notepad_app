@@ -5,6 +5,13 @@
         <title>{% block title %}Notepad{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
+    <style>
+    html,body{
+        text-align:center;
+        background-color:grey;
+    }
+
+    </style>
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}

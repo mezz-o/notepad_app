@@ -9,7 +9,8 @@
 {% for note in notes %}
 <h1>{{ note.title }}</h1>
 <p>{{ note.description }}</p>
-<a href="{{ path("app_note_edit", {id:note.id}) }}">Edit Note</a>
+<a href="{{ path("app_note_edit", {id:note.id}) }}">Edit</a>
+<a href="{{ path("app_note_delete", {id:note.id}) }}" onclick="return confirm('Are you sure?')">Delete</a>
 {% endfor %}
 
 {% endblock %}
