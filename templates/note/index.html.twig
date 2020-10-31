@@ -9,6 +9,7 @@
 {% for note in notes %}
 <h1>{{ note.title }}</h1>
 <p>{{ note.description }}</p>
+<a href="{{ path("app_note_edit", {id:note.id}) }}">Edit Note</a>
 {% endfor %}
 
 {% endblock %}

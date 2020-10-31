@@ -45,4 +45,21 @@ class NoteController extends AbstractController
             'note' => $note,
         ]);
     }
+
+    /**
+     * @Route("/edit/{id<[0-9]+>}", name="app_note_edit", methods="POST|GET")
+     */
+    public function edit(Note $note, EntityManagerInterface $em, Request $req): Response
+    {
+        $form = $this->createForm(NoteType::class, $note);
+        $form->handleRequest($req);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em->flush();
+            return $this->redirectToRoute("app_home");
+        }
+        return $this->render("/note/edit.html.twig", ["form"=>$form->createView()]);
+    }
+
 }
