@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notepad App{% endblock %}
+
+{% block body %}
+
+<a href="{{ path("app_note_create") }}">Create new Note</a>
+
+{% for note in notes %}
+<h1>{{ note.title }}</h1>
+<p>{{ note.description }}</p>
+{% endfor %}
+
+{% endblock %}
